@@ -1,15 +1,17 @@
 <?php
 
 namespace WEBUtils\Utils;
+
 use WEBUtils\Utils\Constantes;
 use ReflectionClass;
 use DateTime;
 use Exception;
 
 /**
- * Description of Utils
- *
+ * Classe com varios metodos para uso geral, como conversao de datas vales
+ * cortar texto, remover acentos entre outros
  * @author Marcelo
+ *
  */
 class Utils {
 
@@ -70,7 +72,7 @@ class Utils {
             echo "<option value='" . $key . "'" . $selected . ">" . $v . "</option>";
         }
     }
-    
+
     static function mascara($mascara, $string) {
         $string = str_replace(" ", "", $string);
         for ($i = 0; $i < strlen($string); $i++) {
@@ -179,13 +181,14 @@ class Utils {
         $today = getdate();
         $hour = $today['hours'];
 
-        if ($hour >= 5 && $hour < 12)
-            $saudacao = "Bom dia";
-        if ($hour >= 12 && $hour < 18)
-            $saudacao = "Boa tarde";
-        if (($hour >= 18 && $hour < 24) || ($hour >= 1 && $hour < 5))
-            $saudacao = "Boa noite";
-        return $saudacao;
+        if ($hour >= 5 && $hour < 12) {
+            return "Bom dia";
+        } else if ($hour >= 12 && $hour < 18) {
+            return "Boa tarde";
+        } else if (($hour >= 18 && $hour < 24) || ($hour >= 1 && $hour < 5)) {
+            return "Boa noite";
+        }
+        return "";
     }
 
     /**
