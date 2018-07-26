@@ -1,0 +1,22 @@
+{
+    "name": "vendor/webutils",
+    "description": "Descricao do projeto WEBUtils.",
+    "type":"library",
+    "version":"1.0",
+    "authors": [
+        {
+            "name": "Marcelo",
+            "email": "marcelor_s@hotmail.com",
+            "role": "creator"
+        }
+    ],
+    "require": {
+        "php": ">5.3"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "WEBUtils\\": ["src/"]
+        }
+    }
+}
