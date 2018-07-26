@@ -11,7 +11,7 @@ Utility functions
     
     use WEBUtils/Utils/Utils;
     echo Utils::mascara('#####-###','12345678');
-    Resultado: R$ 12345-678
+    Resultado: 12345-678
 
     use WEBUtils/Utils/UtilsDate;
     echo Utils::corrigeDataHora('2018-02-12');
