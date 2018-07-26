@@ -1,22 +1,29 @@
 {
     "name": "mactus/webutils",
-    "description": "Descricao do projeto WEBUtils.",
     "type":"library",
+    "description": "WEBUtils - composto com varios metodos de uso geral para conversao de datas, valores, strings, entre outras",
+     "keywords": ["utils","mactus","php"],
+    "homepage": "https://github.com/mrs27/WEBUtils",
+    "license": ["GPL-3.0+","LGPL-3.0+"],
     "version":"1.0",
     "authors": [
         {
             "name": "Marcelo",
             "email": "marcelor_s@hotmail.com",
             "role": "creator"
+        },
+        {
+            "name": "Mactus Soluções em T.I.",
+            "homepage": "http://www.mactus.com.br"
         }
     ],
     "require": {
         "php": ">5.3"
     },
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "WEBUtils\\": ["src/"]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
