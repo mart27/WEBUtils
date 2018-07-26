@@ -4,7 +4,7 @@
     "description": "WEBUtils - composto com varios metodos de uso geral para conversao de datas, valores, strings, entre outras",
      "keywords": ["utils","mactus","php"],
     "homepage": "https://github.com/mrs27/WEBUtils",
-    "license": ["GPL-3.0+","LGPL-3.0+"],
+    "license": ["MIT"],
     "version":"1.0",
     "authors": [
         {
