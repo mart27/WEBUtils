@@ -16,12 +16,12 @@ use Exception;
 class Utils {
 
     /**
-     * PEGA A DATA E HORA EM FORMATO MYSQL E CORRIGE yyy-mm-dd h:i:s   para dd/mm/yyyy h:i:s
+     * PEGA A DATA E HORA EM FORMATO yyy-mm-dd h:i:s  e CORRIGE PARA dd/mm/yyyy h:i:s
      * @author Marcelo R. Santos
      * @version 1.0
      * @param date $data data
      * @param int $op opção 0 = data | 1 = data e hora
-     * @return mixed
+     * @return String
      */
     static function corrigeDataHora($data, $op = 0) {
         if (!isset($data)) {
@@ -39,7 +39,7 @@ class Utils {
     }
 
     /**
-     * PEGA A DATA E HORA EM FORMATO NORMAL E INVERTE PARA MYSQL  dd/mm/yyyy h:i:s  para  yyy-m-dd h:i:s
+     * PEGA A DATA E HORA EM FORMATO NORMAL dd/mm/yyyy h:i:s  E INVERTE PARA yyy-m-dd h:i:s
      * @author Marcelo R. Santos
      * @version 1.0
      * @param date $data data
@@ -57,10 +57,19 @@ class Utils {
         return $nova_data;
     }
 
+    /**
+     * RETORNA ESTADO(UF) DE ACORDO COM SIGLA INFORMADA
+     * @param Sigla do estado 
+     * @return String - estado
+     */
     static function retornaEstadoUf($valor) {
         return Constantes::listUf()[$valor];
     }
 
+    /**
+     * EXIBE ESTADOS (UF) PARA EXIBICAO EM LISTA (<select>)
+     * @param type $padrao
+     */
     static function exibeHtmlSelectEstadosUf($padrao = "") {
         $estados = Constantes::listUf();
 
@@ -73,6 +82,12 @@ class Utils {
         }
     }
 
+    /**
+     * ADIONA MASCARA A UM VALOR INFORMADO EX: CEP: #####-###
+     * @param String - mascara a ser usada ex: ##/##/####
+     * @param String - texto para adicionar a mascara
+     * @return String - texto com a mascara especifica
+     */
     static function mascara($mascara, $string) {
         $string = str_replace(" ", "", $string);
         for ($i = 0; $i < strlen($string); $i++) {
