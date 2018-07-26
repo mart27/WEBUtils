@@ -1,5 +1,5 @@
 {
-    "name": "vendor/webutils",
+    "name": "mactus/webutils",
     "description": "Descricao do projeto WEBUtils.",
     "type":"library",
     "version":"1.0",
