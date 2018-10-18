@@ -19,23 +19,24 @@ class TokenForm {
         $this->header = '{"typ":"JWT","alg":"HS256"}';
     }
 
-    public function geraToken() {
+    public function geraToken($page) {
         $payload = array(
-            "exp" => date('Y-m-d', strtotime("+1 days")),
-            "name" => $username,
-            "email" => $email
+            "exp" => date('Y-m-d H:i:s', strtotime("+10 minute")),
+            "page" => $page
         );
         $token = $this->JWT->encode($this->header, json_encode($payload), $this->key);
         return $token;
     }
 
-    public function isTokenValido() {
+    public function isTokenValido($token, $page) {
 
         $this->mensagem = 'Token valido';
         $isTokenValido = false;
         //getallheaders()['Authorization']; o token esta aqui <.<
         if (!$token) {
             $this->mensagem = "Token nao informado";
+        } else if (!$page) {
+            $this->mensagem = "Pagina de acesso nao informada";
         } else {
             $json = $this->JWT->decode($token, $this->key);
             if (!$json) {
@@ -45,12 +46,14 @@ class TokenForm {
                 $dataToken = $json->{'exp'};
                 if (strtotime($dataToken) === strtotime(date('Y-m-d'))) {
                     $this->mensagem = "Token Expirado";
+                } else if ($page != $json->{'page'}) {
+                    $this->mensagem = "Pagina de acesso incorreta";
                 } else {
                     $isTokenValido = true;
                 }
             }
-        }       
-        
+        }
+
         return $isTokenValido;
     }
 
