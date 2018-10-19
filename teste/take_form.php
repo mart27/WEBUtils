@@ -1,17 +1,14 @@
 <?php
-
-$nome = filter_input(INPUT_POST, 'nome');
-
-
 include '../vendor/autoload.php';
 
 use WEBUtils\Secure\TokenForm;
 
+echo $token = filter_input(INPUT_POST, 'token');
+$page = 'form';
 $t = new TokenForm();
-$token = $_COOKIE['acesso-site'];
-$page = 'form1';
 
 if ($t->isTokenValido($token, $page)) {
+$nome = filter_input(INPUT_POST, 'nome');
     echo "nome: " . $nome;
 } else {
     echo $t->getMensagem();
