@@ -4,8 +4,27 @@ use WEBUtils\Secure\TokenForm;
 
 $t = new TokenForm();
 
-echo $token = $t->geraToken('form');
+$token = $t->geraToken('form');
 //setcookie('acesso-site', $token, time() + (86400 * 30), "/");
+
+//$url = 'http://localhost/WEBUtils/teste/take_form.php';
+//
+//$context = stream_context_create(array(
+//    'http' => array(
+//        'method' => 'POST',
+//        'header' => 'Content-type: application/x-www-form-urlencoded',
+//        'content' => http_build_query(
+//            array(
+//                'token' => $token,
+//                'nome' => '47xxxxxxxx'                
+//            )
+//        ),
+//        'timeout' => 60
+//    )
+//));
+//
+//$resp = file_get_contents($url, FALSE, $context);
+//print_r($resp);
 ?>
 <!DOCTYPE html>
 <html>

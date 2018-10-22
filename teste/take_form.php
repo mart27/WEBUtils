@@ -3,7 +3,7 @@ include '../vendor/autoload.php';
 
 use WEBUtils\Secure\TokenForm;
 
-echo $token = filter_input(INPUT_POST, 'token');
+$token = filter_input(INPUT_POST, 'token');
 $page = 'form';
 $t = new TokenForm();
 

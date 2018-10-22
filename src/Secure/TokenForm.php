@@ -4,7 +4,9 @@ namespace WEBUtils\Secure;
 
 /**
  * Description of TokenForm
- *
+ * Classe responsavel por validar token de pagina pai para filho, para que o 
+ * filho só execute o codigo se o token e pagina pai corresponder a token valido ]
+ * e pagina filho aceita a pagina pai.
  * @author Marcelo
  */
 class TokenForm {
@@ -19,15 +21,26 @@ class TokenForm {
         $this->header = '{"typ":"JWT","alg":"HS256"}';
     }
 
+/**
+ * Gera token para ser passado a pagina requisitada
+ * @param String $page Nome da pagina que esta sendo executada, esta deve ser mencionada na pagina requisitada
+ * @return String Token gerado
+ */
     public function geraToken($page) {
         $payload = array(
-            "exp" => date('Y-m-d H:i:s', strtotime("+10 minute")),
+            "exp" => date('Y-m-d H:i:s', strtotime("+5 minute")),
             "page" => $page
         );
         $token = $this->JWT->encode($this->header, json_encode($payload), $this->key);
         return $token;
     }
 
+    /**
+     * Testa se token informado é valido
+     * @param String $token Token informado
+     * @param String $page Nome da pagina pai referenciada na pagina filha
+     * @return boolean TRUE token valido, FALSE token nao valido, ver getMesagem()
+     */
     public function isTokenValido($token, $page) {
 
         $this->mensagem = 'Token valido';
