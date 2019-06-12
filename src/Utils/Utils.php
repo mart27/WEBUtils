@@ -102,6 +102,20 @@ class Utils {
         return strtr($texto, $map); // funciona corretamente
     }
 
+    static public function removeCaracterEspecial($string) {
+        $string = str_replace(['Á', 'À', 'Â', 'Ã', 'Ä', 'á', 'à', 'â', 'ã', 'ä'], 'a', $string);
+        $string = str_replace(['É', 'È', 'Ê', 'é', 'è', 'ê'], "e", $string);
+        $string = str_replace(['Í', 'Ì', 'í', 'ì'], "i", $string);
+        $string = str_replace(['Ó', 'Ò', 'Ô', 'Õ', 'Ö', 'ó', 'ò', 'ô', 'õ', 'ö'], "o", $string);
+        $string = str_replace(['Ú', 'Ù', 'Ü', 'ú', 'ù', 'ü'], "u", $string);
+        $string = str_replace(['Ç', 'ç'], "c", $string);
+        $string = preg_replace("/[][><}{)(:;,!?*%~^`&#@º]/", "", $string);
+        $string = preg_replace("/ /", "_", $string);
+        $string = str_replace(['$', '–'], "", $string);
+        $string = strtolower($string);
+        return $string;
+    }
+
     /**
      * Exclui arquivos e diretorios recursivamente
      * @param type $dir

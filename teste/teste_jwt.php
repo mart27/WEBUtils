@@ -17,7 +17,7 @@ $token = array(
  * for a list of spec-compliant algorithms.
  */
 echo $jwt = JWT::encode($token, $key);
-$decoded = JWT::decode($jwt, $key, array('HS256'));
+$decoded = JWT::decode($jwt."1", $key, array('HS256'));
 
 print_r($decoded);
 

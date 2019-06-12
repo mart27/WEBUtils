@@ -1,6 +1,7 @@
 <?php
 
 namespace WEBUtils\Utils;
+
 /**
  * Classe para upload de arquivos.
  *
@@ -64,7 +65,6 @@ class Upload {
      */
     protected $_msg_retorno = '';
     protected $isError = false;
-    
     protected $inicioNome = '';
 
     /**
@@ -95,14 +95,15 @@ class Upload {
 
     //remove acentos e caractes especiais
     public function remover_caracter($string) {
-        $string = preg_replace("/[ÁÀÂÃÄáàâãä]/", "a", $string);
-        $string = preg_replace("/[ÉÈÊéèê]/", "e", $string);
-        $string = preg_replace("/[ÍÌíì]/", "i", $string);
-        $string = preg_replace("/[ÓÒÔÕÖóòôõö]/", "o", $string);
-        $string = preg_replace("/[ÚÙÜúùü]/", "u", $string);
-        $string = preg_replace("/[Çç]/", "c", $string);
+        $string = str_replace(['Á', 'À', 'Â', 'Ã', 'Ä', 'á', 'à', 'â', 'ã', 'ä'], 'a', $string);
+        $string = str_replace(['É', 'È', 'Ê', 'é', 'è', 'ê'], "e", $string);
+        $string = str_replace(['Í', 'Ì', 'í', 'ì'], "i", $string);
+        $string = str_replace(['Ó', 'Ò', 'Ô', 'Õ', 'Ö', 'ó', 'ò', 'ô', 'õ', 'ö'], "o", $string);
+        $string = str_replace(['Ú', 'Ù', 'Ü', 'ú', 'ù', 'ü'], "u", $string);
+        $string = str_replace(['Ç', 'ç'], "c", $string);
         $string = preg_replace("/[][><}{)(:;,!?*%~^`&#@º]/", "", $string);
         $string = preg_replace("/ /", "_", $string);
+        $string = str_replace(['$', '–'], "", $string);
         $string = strtolower($string);
         return $string;
     }
@@ -118,7 +119,8 @@ class Upload {
         $this->_arq_ext = strrchr($this->_arquivo['name'], '.');
         //prepara o nome o nome do arquivo
         $nome_arquivo = trim(substr($this->_arquivo['name'], 0, -4));
-        $this->_arq_nome = $this->remover_caracter($nome_arquivo) . "-";
+        //$this->_arq_nome = $this->remover_caracter($nome_arquivo) . "-";
+        $this->_arq_nome = Utils::removeCaracterEspecial($nome_arquivo) . "-";
         //$this->_novo_nome = md5(uniqid(time())) . $this->_arq_ext;
         $this->_novo_nome = $this->_arq_nome . date("Y-m-d") . "-" . date("H-i-s") . $this->_arq_ext;
     }
@@ -146,8 +148,8 @@ class Upload {
     function setIsError($isError) {
         $this->isError = $isError;
     }
-    
-    public function setInicioNome($nome){
+
+    public function setInicioNome($nome) {
         $this->inicioNome = $nome;
     }
 
@@ -182,7 +184,7 @@ class Upload {
         }
     }
 
-    private function chkInicioNome($nome, $valor) {   
+    private function chkInicioNome($nome, $valor) {
         $inicionome = substr($nome, 0, strlen($valor));
         if ($inicionome <> $valor) {
             $this->_msg_retorno = "O arquivo deve iniciar com o nome: " . $valor;
@@ -206,7 +208,7 @@ class Upload {
             if ($this->chkExt() === false) {
                 return false;
             }
-            
+
             if ($this->chkInicioNome($this->_arquivo['name'], $this->inicioNome) === false) {
                 return false;
             }

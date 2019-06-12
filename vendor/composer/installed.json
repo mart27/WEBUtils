@@ -46,5 +46,40 @@
         ],
         "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
         "homepage": "https://github.com/firebase/php-jwt"
+    },
+    {
+        "name": "phprtflite/phprtflite",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phprtflite/PHPRtfLite.git",
+            "reference": "0cf7bfd3018ae62058d9be9e3e519cb17c6672a8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phprtflite/PHPRtfLite/zipball/0cf7bfd3018ae62058d9be9e3e519cb17c6672a8",
+            "reference": "0cf7bfd3018ae62058d9be9e3e519cb17c6672a8",
+            "shasum": ""
+        },
+        "time": "2014-09-18T20:14:02+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "PHPRtfLite": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Steffen Zeidler",
+                "email": "sigma_z@sigma-scripts.de"
+            }
+        ],
+        "description": "PHPRtfLite is an API enabling developers to create rtf documents with php."
     }
 ]

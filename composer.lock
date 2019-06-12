@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c861f793cb01d9379f0ba443537d373c",
+    "content-hash": "95972d039235232987e3a2a7805b286b",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -51,13 +51,47 @@
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
             "time": "2018-01-26T19:13:29+00:00"
+        },
+        {
+            "name": "phprtflite/phprtflite",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phprtflite/PHPRtfLite.git",
+                "reference": "0cf7bfd3018ae62058d9be9e3e519cb17c6672a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phprtflite/PHPRtfLite/zipball/0cf7bfd3018ae62058d9be9e3e519cb17c6672a8",
+                "reference": "0cf7bfd3018ae62058d9be9e3e519cb17c6672a8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPRtfLite": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Steffen Zeidler",
+                    "email": "sigma_z@sigma-scripts.de"
+                }
+            ],
+            "description": "PHPRtfLite is an API enabling developers to create rtf documents with php.",
+            "time": "2014-09-18T20:14:02+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "firebase/php-jwt": 20
+        "firebase/php-jwt": 20,
+        "phprtflite/phprtflite": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

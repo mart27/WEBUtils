@@ -1,5 +1,6 @@
 <?php
-namespace WEBUtils\Secure;
+
+namespace WEBUtils\secure;
 
 /**
  * Description of JWT
