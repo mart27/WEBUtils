@@ -5,7 +5,7 @@
      "keywords": ["utils","mactus","php"],
     "homepage": "https://github.com/mrs27/WEBUtils",
     "license": ["GPL-3.0+","LGPL-3.0+"],
-    "version":"1.0",
+    "version":"1.0.0",
     "authors": [
         {
             "name": "Marcelo",
@@ -18,9 +18,7 @@
         }
     ],
     "require": {
-        "php": ">5.3",
-        "firebase/php-jwt": "dev-master",
-        "phprtflite/phprtflite": "dev-master"
+        "php": ">5.3"
     },
     "autoload": {
         "psr-4": {
