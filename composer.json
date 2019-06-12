@@ -26,6 +26,5 @@
         "psr-4": {
             "WEBUtils\\": ["src/"]
         }
-    },    
-    "minimum-stability": "stable"
+    }
 }
