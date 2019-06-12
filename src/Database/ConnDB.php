@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBUtils\Utils;
+namespace WEBUtils\Database;
 
 use WEBUtils\Database\ResultSet;
 use WEBUtils\Utils\Utils;
